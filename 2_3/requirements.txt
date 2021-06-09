@@ -1,0 +1,11 @@
+autopep8==1.5.7
+certifi==2020.12.5
+joblib==1.0.1
+numpy==1.20.3
+opencv-python==4.5.2.52
+pycodestyle==2.7.0
+scikit-learn==0.24.2
+scipy==1.6.3
+sklearn==0.0
+threadpoolctl==2.1.0
+toml==0.10.2
