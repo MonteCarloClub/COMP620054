@@ -2,22 +2,44 @@
 
 ## 第1次作业
 
-提交源代码和实验报告。
+在[`1`目录](https://github.com/MonteCarloClub/COMP620054/tree/main/1)，直接运行：
 
-### 1. 数据源
+```shell
+$ python __main__.py
+```
 
-数据源是`1/iris.dat`。
+请转到[第1次作业的README](https://github.com/MonteCarloClub/COMP620054/blob/main/1/README.md)阅读输出例子和其他相关信息。
 
-每行由5个元素组成，第1-4个元素表示样本；第5个元素表示类别。全体元素被分成3类，我们实现的算法也需要把它们分成3类。
+## 第2和3次作业
 
-### 2. 模糊C-均值算法
+在[`2_3`目录](https://github.com/MonteCarloClub/COMP620054/tree/main/2_3)，分别运行对应文件。
 
-输入：`1/iris.dat`；
+### Minimum Distance Face Recognition
 
-输出：初始类中心、迭代数目、分类结果（每类包含的样本和类中心）和错误率。
+```shell
+$ python min_dist_recognizer.py
+```
 
-### 3. 谱聚类
+### Principal Component Analysis (PCA) Face Recognition
 
-输入：`1/iris.dat`；
+```shell
+$ python pca_recognizer.py 199 # (...)
+```
 
-输出：分类结果。
+### Fisher’s Linear Discriminant (FLD) Face Recognition
+
+```shell
+$ python fld_recognizer.py 39 # (...)
+```
+
+### Efficient Fisher’s Linear Discriminant Face Recognition
+
+```shell
+$ python efficient_fld_recognizer.py 39 160 # (...)
+```
+
+### Locally Linear Embedding (LLE) Face Recognition
+
+```shell
+$ python lle_recognizer.py 2 2
+```

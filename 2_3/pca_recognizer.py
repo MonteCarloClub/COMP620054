@@ -110,11 +110,11 @@ if __name__ == '__main__':
                     [test_images[:, (IMAGE_COUNT_PER_FACE-TRAIN_COUNT_PER_FACE)*j+k]]).T
                 face_recognized = recognize_face(
                     m, E, omegas_of_training_set, face)
-                tOrF = 'T'
+                t_or_f = 'T'
                 if face_recognized != j:
-                    tOrF = 'F'
+                    t_or_f = 'F'
                     error_count_j += 1
-                print(f'{j+1}\t{k+1}\t{face_recognized+1}\t{tOrF}')
+                print(f'{j+1}\t{k+1}\t{face_recognized+1}\t{t_or_f}')
             error_count += error_count_j
             print(f'{error_count_j} / {IMAGE_COUNT_PER_FACE-TRAIN_COUNT_PER_FACE} = {error_count_j/(IMAGE_COUNT_PER_FACE-TRAIN_COUNT_PER_FACE)}\n')
         print('Total Error Rate:')

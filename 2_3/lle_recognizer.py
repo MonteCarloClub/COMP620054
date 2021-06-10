@@ -4,7 +4,9 @@ https://www.arocmag.com/article/1001-3695(2007)10-0176-02.html
 
 The variable names used in this source code are consistent with this paper.
 '''
+import matplotlib.pyplot as plt
 import numpy as np
+import os
 import sys
 
 from settings import FACE_COUNT
@@ -85,7 +87,7 @@ if __name__ == '__main__':
         print('Please specify `k` and `d` via command line parameters.')
         print(f'0 < `k` < {TRAIN_COUNT_PER_FACE*FACE_COUNT}')
         print(f'0 < `d` < {TRAIN_COUNT_PER_FACE*FACE_COUNT-1}')
-        print('E.g. python pca_recognizer.py 2 2 (...)')
+        print('E.g. python lle_recognizer.py 2 2')
         sys.exit()
 
     if len(sys.argv) > 3:
@@ -99,6 +101,19 @@ if __name__ == '__main__':
     k, d = int(sys.argv[1]), int(sys.argv[2])
     W = get_W(training_images, k)
     Y = get_Y(training_images, W, d)
+    if d == 2:
+        _X = np.real(Y[0, :])
+        _Y = np.real(Y[1, :])
+        _Z = []
+        for i in range(FACE_COUNT):
+            for j in range(TRAIN_COUNT_PER_FACE):
+                _Z.append(i)
+        plt.scatter(_X, _Y, c=_Z)
+        output_dir_flag = os.path.exists('./output/3')
+        if not output_dir_flag:
+            os.makedirs('./output/3')
+        plt.savefig('./output/3/Y_scatter_'+str(k)+'.png')
+        print('You can view the scatter plot of `Y` at file://./output/3\n')
     error_count = 0
     for i in range(FACE_COUNT):
         error_count_i = 0

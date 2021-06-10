@@ -57,11 +57,11 @@ if __name__ == '__main__':
         error_count_i = 0
         for j in range(TRAIN_COUNT_PER_FACE, IMAGE_COUNT_PER_FACE):
             face_recognized = recognize_face(i, j, centers)
-            tOrF = 'T'
+            t_or_f = 'T'
             if face_recognized != i:
-                tOrF = 'F'
+                t_or_f = 'F'
                 error_count_i += 1
-            print(f'{i+1}\t{j+1}\t{face_recognized+1}\t{tOrF}')
+            print(f'{i+1}\t{j+1}\t{face_recognized+1}\t{t_or_f}')
         error_count += error_count_i
         print(f'{error_count_i} / {IMAGE_COUNT_PER_FACE-TRAIN_COUNT_PER_FACE} = {error_count_i/(IMAGE_COUNT_PER_FACE-TRAIN_COUNT_PER_FACE)}\n')
     print('Total Error Rate:')

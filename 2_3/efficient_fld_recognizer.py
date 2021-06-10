@@ -12,7 +12,7 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         print('Please specify a series of `M_` via command line parameters.')
         print(f'{FACE_COUNT-1} <= `M_` < {TRAIN_COUNT_PER_FACE*FACE_COUNT}')
-        print('E.g. python pca_recognizer.py 39 160 (...)')
+        print('E.g. python efficient_fld_recognizer.py 39 160 (...)')
         sys.exit()
 
     print('###### Efficient Fisher’s Linear Discriminant Face Recognition ######')
@@ -39,11 +39,11 @@ if __name__ == '__main__':
                     [test_images[:, (IMAGE_COUNT_PER_FACE-TRAIN_COUNT_PER_FACE)*j+k]]).T-m
                 omega_of_face = np.dot(E.T, face)
                 face_recognized = lda_obj.predict(omega_of_face.T)
-                tOrF = 'T'
+                t_or_f = 'T'
                 if face_recognized != j:
-                    tOrF = 'F'
+                    t_or_f = 'F'
                     error_count_j += 1
-                print(f'{j+1}\t{k+1}\t{face_recognized+1}\t{tOrF}')
+                print(f'{j+1}\t{k+1}\t{face_recognized+1}\t{t_or_f}')
             error_count += error_count_j
             print(f'{error_count_j} / {IMAGE_COUNT_PER_FACE-TRAIN_COUNT_PER_FACE} = {error_count_j/(IMAGE_COUNT_PER_FACE-TRAIN_COUNT_PER_FACE)}\n')
         print('Total Error Rate:')
